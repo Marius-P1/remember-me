@@ -1,0 +1,380 @@
+{
+  "event": "Les vacances à Rome",
+  "memories": [
+    {
+      "person": {
+        "name": "Marie",
+        "relationship": "Fille",
+        "age": 45,
+        "occupation": "Professeure de littérature",
+        "hobbies": [
+          "Lecture",
+          "Écriture",
+          "Voyages"
+        ],
+        "description": "Une femme passionnée par les arts et la culture, toujours à la recherche de nouvelles expériences."
+      },
+      "place": [
+        "Colisée",
+        "Fontaine de Trevi",
+        "Piazza Navona"
+      ],
+      "emotion": [
+        "Joie",
+        "Émerveillement",
+        "Nostalgie"
+      ],
+      "description": "Je me souviens de notre visite au Colisée, maman était émerveillée par l'histoire et l'architecture. Elle nous racontait des anecdotes sur les gladiateurs comme si elle y était. C'était magique de la voir si passionnée."
+    },
+    {
+      "person": {
+        "name": "Jean",
+        "relationship": "Fils",
+        "age": 42,
+        "occupation": "Ingénieur",
+        "hobbies": [
+          "Randonnée",
+          "Photographie",
+          "Cuisine"
+        ],
+        "description": "Un homme pragmatique mais avec un côté artistique, toujours à la recherche de la perfection."
+      },
+      "place": [
+        "Vatican",
+        "Basilique Saint-Pierre",
+        "Musées du Vatican"
+      ],
+      "emotion": [
+        "Admiration",
+        "Sérénité",
+        "Respect"
+      ],
+      "description": "La visite du Vatican était un moment de grande émotion pour maman. Elle était si émue dans la Basilique Saint-Pierre, les larmes aux yeux devant tant de beauté et de spiritualité. C'était un moment de recueillement intense pour nous tous."
+    },
+    {
+      "person": {
+        "name": "Sophie",
+        "relationship": "Petite-fille",
+        "age": 20,
+        "occupation": "Étudiante en art",
+        "hobbies": [
+          "Peinture",
+          "Danse",
+          "Théâtre"
+        ],
+        "description": "Une jeune fille créative et rêveuse, toujours à la recherche d'inspiration."
+      },
+      "place": [
+        "Piazza Navona",
+        "Panthéon",
+        "Fontaine de Trevi"
+      ],
+      "emotion": [
+        "Bonheur",
+        "Inspiration",
+        "Légèreté"
+      ],
+      "description": "Je me souviens de notre soirée à la Piazza Navona, maman riait aux éclats en regardant les artistes de rue. Elle a même dansé avec un mime, c'était si drôle et léger. Un moment de pure joie et de complicité."
+    },
+    {
+      "person": {
+        "name": "Paul",
+        "relationship": "Ami d'enfance",
+        "age": 76,
+        "occupation": "Retraité",
+        "hobbies": [
+          "Jardinage",
+          "Pêche",
+          "Lecture"
+        ],
+        "description": "Un homme sage et calme, toujours prêt à écouter et à partager ses souvenirs."
+      },
+      "place": [
+        "Trastevere",
+        "Campo de' Fiori",
+        "Piazza di Spagna"
+      ],
+      "emotion": [
+        "Nostalgie",
+        "Amusement",
+        "Amitié"
+      ],
+      "description": "Nous avons passé une soirée mémorable à Trastevere, à déguster des plats typiques et à écouter de la musique italienne. Maman était si heureuse, elle chantait et riait comme si elle avait 20 ans. C'était un moment de grande complicité entre nous."
+    },
+    {
+      "person": {
+        "name": "Claire",
+        "relationship": "Voisine",
+        "age": 68,
+        "occupation": "Retraitée",
+        "hobbies": [
+          "Couture",
+          "Jardinage",
+          "Cuisine"
+        ],
+        "description": "Une femme chaleureuse et généreuse, toujours prête à aider les autres."
+      },
+      "place": [
+        "Villa Borghese",
+        "Galerie Borghese",
+        "Jardins de la Villa Borghese"
+      ],
+      "emotion": [
+        "Émerveillement",
+        "Sérénité",
+        "Joie"
+      ],
+      "description": "La visite de la Villa Borghese était un enchantement pour maman. Elle admirait les jardins et les œuvres d'art avec une telle passion. C'était un moment de grande sérénité et de beauté partagée."
+    },
+    {
+      "person": {
+        "name": "Luc",
+        "relationship": "Collègue retraité",
+        "age": 72,
+        "occupation": "Retraité",
+        "hobbies": [
+          "Voyages",
+          "Lecture",
+          "Randonnée"
+        ],
+        "description": "Un homme cultivé et curieux, toujours à la recherche de nouvelles découvertes."
+      },
+      "place": [
+        "Forum Romain",
+        "Mont Palatin",
+        "Circus Maximus"
+      ],
+      "emotion": [
+        "Admiration",
+        "Curiosité",
+        "Respect"
+      ],
+      "description": "Nous avons exploré le Forum Romain ensemble, maman était fascinée par l'histoire de chaque pierre. Elle nous racontait des anecdotes avec une telle précision, c'était impressionnant de voir sa mémoire si vive."
+    },
+    {
+      "person": {
+        "name": "Élise",
+        "relationship": "Amie de longue date",
+        "age": 74,
+        "occupation": "Retraitée",
+        "hobbies": [
+          "Peinture",
+          "Lecture",
+          "Voyages"
+        ],
+        "description": "Une femme élégante et raffinée, toujours à la recherche de beauté et d'harmonie."
+      },
+      "place": [
+        "Place d'Espagne",
+        "Via Condotti",
+        "Piazza di Spagna"
+      ],
+      "emotion": [
+        "Joie",
+        "Élégance",
+        "Complicité"
+      ],
+      "description": "Nous avons passé un après-midi délicieux à la Place d'Espagne, à flâner et à faire du shopping. Maman était si élégante et heureuse, c'était un moment de grande complicité entre nous."
+    },
+    {
+      "person": {
+        "name": "Marc",
+        "relationship": "Petit-fils",
+        "age": 25,
+        "occupation": "Étudiant en médecine",
+        "hobbies": [
+          "Sport",
+          "Lecture",
+          "Voyages"
+        ],
+        "description": "Un jeune homme sérieux mais avec un grand sens de l'humour, toujours prêt à aider les autres."
+      },
+      "place": [
+        "Quartier du Trastevere",
+        "Basilique Sainte-Marie-du-Trastevere",
+        "Île Tibérine"
+      ],
+      "emotion": [
+        "Amusement",
+        "Curiosité",
+        "Joie"
+      ],
+      "description": "Je me souviens de notre balade dans le Trastevere, maman était curieuse de tout, elle posait des questions sur chaque détail. C'était un moment de grande découverte et de joie partagée."
+    },
+    {
+      "person": {
+        "name": "Hélène",
+        "relationship": "Cousine",
+        "age": 70,
+        "occupation": "Retraitée",
+        "hobbies": [
+          "Cuisine",
+          "Jardinage",
+          "Lecture"
+        ],
+        "description": "Une femme douce et attentionnée, toujours prête à écouter et à partager ses souvenirs."
+      },
+      "place": [
+        "Piazza del Popolo",
+        "Via del Corso",
+        "Piazza Venezia"
+      ],
+      "emotion": [
+        "Nostalgie",
+        "Joie",
+        "Complicité"
+      ],
+      "description": "Nous avons passé une journée merveilleuse à la Piazza del Popolo, à admirer les monuments et à flâner. Maman était si heureuse, c'était un moment de grande complicité et de joie partagée."
+    },
+    {
+      "person": {
+        "name": "Pierre",
+        "relationship": "Ami de longue date",
+        "age": 73,
+        "occupation": "Retraité",
+        "hobbies": [
+          "Voyages",
+          "Lecture",
+          "Photographie"
+        ],
+        "description": "Un homme aventureux et curieux, toujours à la recherche de nouvelles expériences."
+      },
+      "place": [
+        "Château Saint-Ange",
+        "Pont Saint-Ange",
+        "Via della Conciliazione"
+      ],
+      "emotion": [
+        "Émerveillement",
+        "Curiosité",
+        "Joie"
+      ],
+      "description": "La visite du Château Saint-Ange était un moment magique pour maman. Elle admirait chaque détail avec une telle passion, c'était un moment de grande découverte et de joie partagée."
+    },
+    {
+      "person": {
+        "name": "Anne",
+        "relationship": "Amie d'enfance",
+        "age": 75,
+        "occupation": "Retraitée",
+        "hobbies": [
+          "Couture",
+          "Lecture",
+          "Jardinage"
+        ],
+        "description": "Une femme douce et attentionnée, toujours prête à écouter et à partager ses souvenirs."
+      },
+      "place": [
+        "Basilique Saint-Jean-de-Latran",
+        "Église Sainte-Marie-Majeure",
+        "Basilique Sainte-Croix-de-Jérusalem"
+      ],
+      "emotion": [
+        "Sérénité",
+        "Respect",
+        "Joie"
+      ],
+      "description": "Nous avons visité plusieurs basiliques ensemble, maman était si sereine et respectueuse. C'était un moment de grande spiritualité et de joie partagée."
+    },
+    {
+      "person": {
+        "name": "Julie",
+        "relationship": "Petite-fille",
+        "age": 18,
+        "occupation": "Étudiante",
+        "hobbies": [
+          "Musique",
+          "Danse",
+          "Théâtre"
+        ],
+        "description": "Une jeune fille pleine de vie et de curiosité, toujours à la recherche de nouvelles expériences."
+      },
+      "place": [
+        "Quartier de Monti",
+        "Basilique Saint-Pierre-aux-Liens",
+        "Piazza della Madonna dei Monti"
+      ],
+      "emotion": [
+        "Joie",
+        "Curiosité",
+        "Amusement"
+      ],
+      "description": "Je me souviens de notre balade dans le quartier de Monti, maman était curieuse de tout, elle posait des questions sur chaque détail. C'était un moment de grande découverte et de joie partagée."
+    },
+    {
+      "person": {
+        "name": "François",
+        "relationship": "Ami de longue date",
+        "age": 74,
+        "occupation": "Retraité",
+        "hobbies": [
+          "Voyages",
+          "Lecture",
+          "Photographie"
+        ],
+        "description": "Un homme aventureux et curieux, toujours à la recherche de nouvelles expériences."
+      },
+      "place": [
+        "Villa Adriana",
+        "Villa d'Este",
+        "Tivoli"
+      ],
+      "emotion": [
+        "Émerveillement",
+        "Curiosité",
+        "Joie"
+      ],
+      "description": "La visite de la Villa Adriana était un moment magique pour maman. Elle admirait chaque détail avec une telle passion, c'était un moment de grande découverte et de joie partagée."
+    },
+    {
+      "person": {
+        "name": "Isabelle",
+        "relationship": "Amie d'enfance",
+        "age": 75,
+        "occupation": "Retraitée",
+        "hobbies": [
+          "Couture",
+          "Lecture",
+          "Jardinage"
+        ],
+        "description": "Une femme douce et attentionnée, toujours prête à écouter et à partager ses souvenirs."
+      },
+      "place": [
+        "Catacombes de Rome",
+        "Basilique Saint-Sébastien-hors-les-Murs",
+        "Via Appia Antica"
+      ],
+      "emotion": [
+        "Respect",
+        "Curiosité",
+        "Sérénité"
+      ],
+      "description": "Nous avons visité les catacombes ensemble, maman était si respectueuse et curieuse. C'était un moment de grande spiritualité et de sérénité partagée."
+    },
+    {
+      "person": {
+        "name": "Thomas",
+        "relationship": "Petit-fils",
+        "age": 22,
+        "occupation": "Étudiant en ingénierie",
+        "hobbies": [
+          "Sport",
+          "Jeux vidéo",
+          "Voyages"
+        ],
+        "description": "Un jeune homme dynamique et curieux, toujours à la recherche de nouvelles aventures."
+      },
+      "place": [
+        "Parc des Aqueducs",
+        "Via Appia Antica",
+        "Cinecittà"
+      ],
+      "emotion": [
+        "Amusement",
+        "Curiosité",
+        "Joie"
+      ],
+      "description": "Je me souviens de notre balade dans le Parc des Aqueducs, maman était curieuse de tout, elle posait des questions sur chaque détail. C'était un moment de grande découverte et de joie partagée."
+    }
+  ]
+}

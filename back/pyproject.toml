@@ -1,5 +1,5 @@
 [project]
-name = "back"
+name = "remember"
 version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.11"
@@ -16,3 +16,7 @@ dependencies = [
 dev = [
     "ipykernel>=6.29.5",
 ]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
