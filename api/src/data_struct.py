@@ -1,9 +1,17 @@
 import os
 import json
 from datetime import datetime
+from enum import Enum
 from pydantic import BaseModel, Field
 
 
+class RelationshipType(str, Enum):
+    """
+    Enum representing the type of relationship between two persons.
+    """
+    FRIEND = "friend"
+    FAMILY = "family"
+    CARER = "carer"
 
 
 class Person(BaseModel):
@@ -17,6 +25,9 @@ class Person(BaseModel):
     description: str
     annecdotes: list[str]
     profile_picture_id: int
+    relationship_type: RelationshipType
+    relationship: str
+
 
     def __init__(self, name, email, birthdate: datetime, description, annecdotes=[]):
         super().__init__(name=name, email=email, birthdate=birthdate, description=description, annecdotes=annecdotes)
