@@ -1,18 +1,19 @@
-<script setup>
-import AgentChat from './components/AgentChat.vue'
-import MemoryDashboard from './components/MemoryDashboard.vue'
-</script>
-
 <template>
-  <div class="min-h-screen bg-gray-50">
-    <header class="bg-white shadow-soft py-4">
-      <div class="max-w-4xl mx-auto px-4">
-        <h1 class="text-2xl font-bold text-primary">Assistant AI</h1>
-      </div>
-    </header>
-    
-    <main class="h-[calc(100vh-4rem)]">
-      <MemoryDashboard />
-    </main>
+  <div class="min-h-screen bg-gray-700 relative">
+    <router-link to="/" class="absolute top-4 left-4 w-10 h-10">
+      <img
+        src="../public/icon.png"
+        alt="Icône"
+        class="w-full h-full object-contain"
+      />
+    </router-link>
+
+    <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  name: "App",
+};
+</script>

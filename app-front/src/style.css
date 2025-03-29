@@ -22,3 +22,11 @@ body {
 #app {
   @apply min-h-screen;
 }
+
+
+.container-fixed-size {
+  width: 1366px;
+  height: 1024px;
+  margin: 0 auto;
+  overflow: auto;
+}
