@@ -5,6 +5,7 @@ from enum import Enum
 from pydantic import BaseModel, Field
 
 
+
 class RelationshipType(str, Enum):
     """
     Enum representing the type of relationship between two persons.
@@ -68,7 +69,7 @@ class Image(BaseModel):
     description: str
     date: datetime
     person_id: list[int]
-    event_id: int
+    event_id: int | None
     url: str
 
     def __init__(self, title, description, date: datetime, person_id, event_id, url=""):
