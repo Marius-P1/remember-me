@@ -1,10 +1,19 @@
 [
     {
+      "id": 6,
+      "category": "famille",
+      "name": "Pierre",
+      "relation": "Mari",
+      "age": 80,
+      "image": "/personne/pierre.png",
+      "audiodescription": "../public/audio_extrait.wav"
+    },
+    {
       "id": 1,
       "category": "famille",
       "name": "Paul",
       "relation": "Fils",
-      "age": 64,
+      "age": 50,
       "image": "/personne/pierre_fils.png",
       "audiodescription": "../public/audio_extrait.wav"
     },
@@ -13,7 +22,7 @@
       "category": "famille",
       "name": "Carole",
       "relation": "Belle-fille",
-      "age": 64,
+      "age": 47,
       "image": "/personne/carol_aide_domicile.png",
       "audiodescription": "../public/audio_extrait.wav"
     },
@@ -22,7 +31,7 @@
       "category": "famille",
       "name": "Thibault",
       "relation": "Petit-fils",
-      "age": 25,
+      "age": 24,
       "image": "/personne/fred_petit_fils.png",
       "audiodescription": "../public/audio_extrait.wav"
     },
@@ -31,7 +40,7 @@
       "category": "amis",
       "name": "Jeanne",
       "relation": "Amie de toujours",
-      "age": 82,
+      "age": 78,
       "image": "/placeholder.svg?height=200&width=200",
       "audiodescription": "../public/audio_extrait.wav"
     },
@@ -40,17 +49,8 @@
       "category": "amis",
       "name": "Claude",
       "relation": "Voisin",
-      "age": 64,
+      "age": 82,
       "image": "/placeholder.svg?height=200&width=200",
-      "audiodescription": "../public/audio_extrait.wav"
-    },
-    {
-      "id": 6,
-      "category": "aidants",
-      "name": "Dr. Martin",
-      "relation": "Médecin traitant",
-      "age": 64,
-      "image": "/personne/pierre.png",
       "audiodescription": "../public/audio_extrait.wav"
     },
     {
@@ -58,9 +58,26 @@
       "category": "aidants",
       "name": "Anaïs",
       "relation": "Infirmière",
-      "age": 45,
+      "age": 28,
       "image": "/personne/anais.png",
      "audiodescription": "../public/audio_extrait.wav"
+    },
+    {
+      "id": 8,
+      "category": "famille",
+      "name": "Celeste",
+      "relation": "Petite-fille",
+      "age": 22,
+      "image": "/personne/celeste.png",
+      "audiodescription": "../public/audio_extrait.wav"
+    },
+    {
+      "id": 9,
+      "category": "famille",
+      "name": "Lucien",
+      "relation": "Frère",
+      "age": 79,
+      "image": "/personne/lucien.png",
+      "audiodescription": "../public/audio_extrait.wav"
     }
   ]
-  

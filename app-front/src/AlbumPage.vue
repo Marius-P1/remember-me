@@ -1,8 +1,28 @@
 <template>
   <div class="mx-auto w-full p-6">
-    <div class="container-fixed-size bg-white p-6 rounded-2xl shadow-md">
+    <div class="relative container-fixed-size bg-white p-6 rounded-2xl shadow-md">
+      <router-link
+        to="/"
+        class="absolute top-4 left-4 z-20 bg-[#0035EB] rounded-full p-4 shadow-lg hover:bg-[#002bd1] transition"
+        aria-label="Retour"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-8 w-8 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+      </router-link>
       <!-- Navigation Catégories -->
-      <div class="flex justify-center space-x-10 mb-16 mt-8">
+      <div class="flex justify-center space-x-10 mb-20 mt-8">
         <button
           v-for="category in categories"
           :key="category.id"
@@ -48,21 +68,6 @@
           </div>
         </div>
       </transition>
-
-      <router-link to="/souvenir">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <img
-            src="../public/photo-mariage.jpg"
-            alt="Photo 1"
-            class="rounded-xl object-cover w-full h-80"
-          />
-          <img
-            src="../public/photo-mariage.jpg"
-            alt="Photo 2"
-            class="rounded-xl object-cover w-full h-80"
-          />
-        </div>
-      </router-link>
     </div>
   </div>
 </template>
