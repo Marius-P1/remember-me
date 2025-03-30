@@ -4,16 +4,29 @@
       class="container-fixed-size bg-white bg-slate-50 p-6 font-sans flex flex-col rounded-xl space-y-6 h-[600px]"
     >
       <div
-        class="memory-app relative w-full flex-1 bg-gray-50 rounded-lg overflow-hidden shadow-lg"
+        class="memory-app relative w-full flex-1 bg-gray-50 overflow-hidden shadow-lg"
       >
-        <!-- Bouton retour -->
-        <div
-          class="absolute top-4 left-4 text-white text-xl z-10 hover:opacity-80 transition-opacity"
+        <!-- Bouton retour en haut à droite -->
+        <router-link
+          to="/album"
+          class="absolute top-4 right-4 z-20 bg-white rounded-full p-4 shadow-lg hover:bg-gray-100 transition"
+          aria-label="Fermer"
         >
-          <router-link to="/album" class="text-blue-600 hover:underline">
-            <h2 class="text-2xl font-bold text-gray-800">❌</h2>
-          </router-link>
-        </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8 text-gray-800"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </router-link>
 
         <!-- Image principale -->
         <div class="relative w-full h-full">
@@ -21,32 +34,39 @@
 
           <!-- Bandeau texte + audio -->
           <div
-            class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-80 backdrop-blur-sm p-4"
+            class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-80 backdrop-blur-sm px-8 py-6 min-h-[10rem]"
           >
             <div class="flex justify-between items-center">
-              <div>
-                <h2 class="font-medium text-gray-800 text-4xl">
+              <div class="flex-1">
+                <h2 class="font-medium text-gray-800 text-4xl break-words">
                   {{ shortHistory }}
                 </h2>
-                <p class="p-2 text-gray-600 text-4xl">{{ date }}</p>
+                <p class="pt-2 text-gray-600 text-4xl">{{ date }}</p>
               </div>
 
-              <div class="flex items-center space-x-6">
+              <div class="flex items-center space-x-6 ml-6 mr-6">
                 <!-- BOUTON PLAY -->
                 <button
                   v-if="!isPlaying"
                   @click="playAudio"
-                  class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center shadow-lg text-white text-5xl font-bold"
+                  class="w-20 h-20 bg-green-500/40 rounded-xl flex items-center justify-center shadow-lg"
                 >
-                  <span class="transform rotate-90 block leading-none">▲</span>
+                  <span
+                    class="text-white text-5xl font-bold transform rotate-90 opacity-100"
+                  >
+                    ▲
+                  </span>
                 </button>
+
                 <!-- BOUTON STOP -->
                 <button
                   v-else
                   @click="stopAudio"
-                  class="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center shadow-lg text-white text-4xl font-bold"
+                  class="w-20 h-20 bg-red-500/40 rounded-xl flex items-center justify-center shadow-lg"
                 >
-                  &#9632;
+                  <span class="text-white text-4xl font-bold opacity-100">
+                    &#9632;
+                  </span>
                 </button>
 
                 <!-- Audio tag -->
