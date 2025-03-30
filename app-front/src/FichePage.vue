@@ -31,10 +31,10 @@
         v-if="person"
         class="flex flex-col space-y-8 mt-6 justify-center items-center"
       >
-        <!-- Section en haut, en flex: à gauche l'info personne, à droite le player -->
+
         <div class="flex flex-wrap md:flex-nowrap space-x-6">
           <!-- Info personne (photo, nom, relation, âge) -->
-          <div class="flex items-center space-x-6">
+          <div class="flex items-center space-x-6  mr-8">
             <div
               class="w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden border-4 border-blue-200 shadow-lg"
             >
@@ -88,7 +88,7 @@
             <!-- Balise audio -->
             <audio
               ref="audioRef"
-              :src="person.audiodescription || '../public/anniversaire.mp3'"
+              :src="person.audiodescription || '../anniversaire.mp3'"
               preload="auto"
             />
 

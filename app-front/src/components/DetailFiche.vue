@@ -5,7 +5,7 @@
         <h3 class="text-3xl font-bold text-blue-900 mb-4">
           Souvenir de {{ person.name }}
         </h3>
-        <p class="text-2xl text-gray-700 leading-relaxed bg-white p-6 rounded-xl">
+        <p class="text-2xl text-gray-700 leading-relaxed bg-white p-2 rounded-xl">
           {{
             person.description ||
             "C'était une personne très importante pour moi. Je garde en mémoire son sourire et sa gentillesse."
