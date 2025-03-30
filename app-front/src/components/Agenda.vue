@@ -1,3 +1,90 @@
+Tableau de bord pour personne avec troubles de la mémoire
+
+Description du concept :
+
+Concevoir une application (optimisée pour un écran de type tablette) présentant :
+
+L’heure actuelle.
+La date du jour.
+
+Un agenda/calendrier simplifié permettant de voir rapidement les rendez-vous ou événements importants à venir.
+Un espace “Souvenir du jour” : une courte anecdote, photo, ou note positive qui rappelle un souvenir agréable.
+L’interface doit être la plus simple possible, avec des blocs clairement séparés (heure, date, agenda, souvenir du jour), un contraste suffisant et une taille de texte adaptée pour faciliter la lisibilité.
+Fonctionnalités requises :
+Heure et date
+Au format numérique clair (HH:MM).
+Jour de la semaine et date complète (ex. “Mardi 14 Mars 2025”).
+Agenda quotidien
+Une liste des événements ou rendez-vous pour la journée.
+Possibilité de faire défiler les prochains jours rapidement, mais mettre l’accent sur la journée en cours.
+Souvenir du jour
+Un emplacement pour afficher une courte note, un fait marquant ou une photo.
+Permettre la mise à jour quotidienne (ou hebdomadaire) de ce souvenir, en favorisant la simplicité.
+Navigation minimale
+Plutôt qu’un menu complexe, utiliser de grands boutons ou une interface “one-page” scindée en sections verticales ou horizontales.
+Couleurs douces et interface accessible (visuellement et cognitivement).
+Exigences de design :
+Adapter la mise en page pour une tablette (format paysage).
+Utiliser des polices grandes et lisibles, avec un bon contraste (fond clair, texte foncé).
+Organiser l’information en sections claires, chaque section étant facilement repérable.
+Prévoir des icônes simples pour illustrer l’agenda et l’horloge si besoin.
+Points techniques (En vue js) :
+Créer des composants pour l’en-tête (heure, date), le bloc agenda, et le bloc “souvenir du jour”.
+Si possible, maquetter la logique d’ajout/affichage de souvenirs et d’événements.
+Objectif principal :
+Permettre à un proche ou à un soignant de mettre à jour l’agenda et le souvenir du jour facilement, de manière à ce que la personne en perte de mémoire puisse se repérer rapidement et se sentir en confiance.
+
+
+
+Assurez-vous que Tailwind CSS est installé et configuré :
+
+Installation : Tailwind CSS doit être installé via npm ou yarn. Assurez-vous que tailwindcss est
+
+Configuration : Vérifiez si vous avez un fichier de configuration Tailwind (tailwind.config.js). Ce fichier est crucial pour personnaliser Tailwind et activer certaines fonctionnalités.
+
+Intégration de Tailwind dans votre projet :
+
+CSS d'entrée :
+
+Importation du CSS : Vérifiez que ce fichier CSS est bien importé dans votre point d'entrée JavaScript ou dans le composant Vue approprié.
+
+Compilation des styles :
+
+Si vous utilisez Vite, assurez-vous que votre fichier vite.config.js est configuré pour utiliser PostCSS et Tailwind. Cela inclut souvent l'utilisation de postcss-import et tailwindcss comme plugins dans postcss.config.js.
+
+
+
+
+
+1366 w x 1024 h
+
+
+rentrer son nom
+créer un espace pour son agenda
+
+
+- image (string)
+- short-history ("Votre petit-fils...)
+- date (17 juin..)
+- audio-history 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <template>
   <section class="rounded-xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
     <!-- Section : Aujourd'hui (événements de demain) -->
@@ -142,3 +229,9 @@ export default {
 </script>
 
 <style scoped></style>
+
+
+
+
+
+
