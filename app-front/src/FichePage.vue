@@ -27,7 +27,10 @@
       </router-link>
 
       <!-- Contenu uniquement si la personne existe -->
-      <div v-if="person" class="flex flex-col space-y-8 mt-6 justify-center items-center">
+      <div
+        v-if="person"
+        class="flex flex-col space-y-8 mt-6 justify-center items-center"
+      >
         <!-- Section en haut, en flex: à gauche l'info personne, à droite le player -->
         <div class="flex flex-wrap md:flex-nowrap space-x-6">
           <!-- Info personne (photo, nom, relation, âge) -->
@@ -75,7 +78,9 @@
               @click="stopAudio"
               class="w-16 h-16 md:w-20 md:h-20 bg-red-500/40 rounded-xl flex items-center justify-center shadow-lg"
             >
-              <span class="text-white text-3xl md:text-4xl font-bold opacity-100">
+              <span
+                class="text-white text-3xl md:text-4xl font-bold opacity-100"
+              >
                 &#9632;
               </span>
             </button>
@@ -83,7 +88,7 @@
             <!-- Balise audio -->
             <audio
               ref="audioRef"
-              :src="person.audiodescription || '../public/audio_extrait.wav'"
+              :src="person.audiodescription || '../public/anniversaire.mp3'"
               preload="auto"
             />
 

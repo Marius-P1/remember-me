@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="p-5">
       <!-- Description Card -->
       <div class="bg-white rounded-2xl p-6 mb-6 shadow-lg">
         <h3 class="text-3xl font-bold text-blue-900 mb-4">
@@ -15,45 +15,54 @@
   
       <!-- Photos Section -->
       <div class="mt-8">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Photos</h2>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Album photos</h2>
+  
+        <!-- Grille de 2 colonnes -->
         <div class="grid grid-cols-2 gap-4">
-          <!-- Summer 2024 Photo -->
-          <div class="relative rounded-xl overflow-hidden shadow-md">
+          <!-- Photo 1 -->
+          <div class="relative h-96 rounded-xl overflow-hidden shadow-md">
             <img
-              src="../../public/photo1.jpg"
-              alt="People looking at mountains"
+              src="../../public/Anniv_Pierre_Monique.png"
+              alt="Anniversaire 2024"
               class="w-full h-full object-cover"
             />
-            <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black to-transparent text-white">
-              <h3 class="text-xl font-semibold">Été 2024</h3>
-              <p class="text-lg">Vacances à Castlenou</p>
+            <div
+              class="absolute bottom-0 left-0 right-0 p-4
+                     bg-gradient-to-t from-black to-transparent text-white"
+            >
+              <h3 class="text-xl font-semibold">Juin 2022</h3>
+              <p class="text-lg">Pierre et moi pour ses 80 ans</p>
             </div>
           </div>
   
-          <!-- June 2022 Photo -->
-          <div class="relative rounded-xl overflow-hidden shadow-md">
+          <!-- Photo 2 -->
+          <div class="relative h-96 rounded-xl overflow-hidden shadow-md">
             <img
-              src="../../public/photo1.jpg"
+              src="../../public/Anniv_Pierre_Seule.webp"
               alt="Group of people smiling"
               class="w-full h-full object-cover"
             />
-            <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black to-transparent text-white">
+            <div
+              class="absolute bottom-0 left-0 right-0 p-4
+                     bg-gradient-to-t from-black to-transparent text-white"
+            >
               <h3 class="text-xl font-semibold">Juin 2022</h3>
-              <p class="text-lg">Mariage de Thibault et Pauline</p>
+              <p class="text-lg">Anniverssaire de Pierre</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-</template>
-
-<script setup>
-import { defineProps } from "vue";
-
-const props = defineProps({
-  person: {
-    type: Object,
-    required: true,
-  },
-});
-</script>
+  </template>
+  
+  <script setup>
+  import { defineProps } from "vue";
+  
+  const props = defineProps({
+    person: {
+      type: Object,
+      required: true,
+    },
+  });
+  </script>
+  
