@@ -4,8 +4,8 @@ from elevenlabs.client import ElevenLabs
 from elevenlabs import save
 
 def get_model():
-    #model = init_chat_model("mistral-large-latest", model_provider="mistralai", temperature=0.2)
-    model = init_chat_model("gpt-4o-mini", model_provider="openai", temperature=0.3, max_retries=3)
+    model = init_chat_model("mistral-large-latest", model_provider="mistralai", temperature=0.2)
+    #model = init_chat_model("gpt-4o-mini", model_provider="openai", temperature=0.3, max_retries=3)
     return model
 
 def text_to_file(text: str, file_path: str):
