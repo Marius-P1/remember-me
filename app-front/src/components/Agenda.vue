@@ -5,7 +5,7 @@
       <div class="mb-4 flex items-center justify-between mb-9">
         <h3 class="text-3xl font-semibold text-gray-900">Aujourd'hui</h3>
         <button
-          class="rounded-full bg-blue-500 p-3 hover:bg-blue-600 transition"
+          class="rounded-full bg-[#0035EB] p-3 hover:bg-[#002bd1] transition"
           aria-label="Voir plus"
         >
           <svg
