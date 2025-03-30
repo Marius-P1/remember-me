@@ -11,14 +11,14 @@
       <!-- Ligne avec texte à gauche et bouton à droite -->
       <div class="flex items-center justify-between">
         <div>
-          <h3 class="text-3xl font-semibold text-white mb-1">
+          <h3 class="text-4xl font-semibold text-white mb-1">
             {{ currentMemory.description }}
           </h3>
-          <p class="text-2xl text-white opacity-80">{{ currentMemory.date }}</p>
+          <p class="text-3xl text-white opacity-80">{{ currentMemory.date }}</p>
         </div>
         <!-- Bouton bleu à droite -->
         <button
-          class="rounded-full bg-[#0035EB] p-3 hover:bg-[#002bd1] transition ml-28"
+          class="rounded-full bg-[#0035EB] p-3 hover:bg-[#002bd1] transition ml-06"
           aria-label="Voir plus"
         >
           <svg

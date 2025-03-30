@@ -1,21 +1,34 @@
 <template>
   <div class="mx-auto w-full p-8">
     <!-- Bouton retour -->
-
     <div
       class="relative container-fixed-size bg-white bg-slate-50 p-6 font-sans flex flex-col rounded-xl"
     >
       <router-link
         to="/"
-        class="absolute top-8 left-8 bg-blue-100 text-blue-800 px-4 py-2 rounded-xl shadow hover:bg-blue-200 transition"
+        class="absolute top-4 left-4 z-20 bg-[#0035EB] rounded-full p-4 shadow-lg hover:bg-[#002bd1] transition"
+        aria-label="Retour"
       >
-        &lt;
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-8 w-8 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
       </router-link>
 
       <h1
         class="text-4xl md:text-5xl font-bold text-center mb-10 text-blue-900"
       >
-        Fiche de {{ person?.name }}
+        {{ person?.name }}
       </h1>
 
       <div v-if="person" class="flex flex-col items-center">
@@ -30,7 +43,7 @@
           />
         </div>
 
-        <!-- Souvenir texte (paragraphe) -->
+        <!-- Souvenir texte -->
         <div class="w-full mb-8">
           <h3 class="text-2xl font-bold text-blue-900 mb-2">
             Souvenir de {{ person.name }}, {{ person.relation }}
@@ -45,23 +58,30 @@
           </p>
         </div>
 
-        <!-- Lecteur audio amélioré -->
+        <!-- Lecteur audio avec boutons stylisés -->
         <div class="flex items-center space-x-6">
           <!-- Bouton PLAY -->
           <button
             v-if="!isPlaying"
             @click="playAudio"
-            class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center shadow-lg text-white text-5xl font-bold"
+            class="w-20 h-20 bg-green-500/60 rounded-xl flex items-center justify-center shadow-lg"
           >
-            <span class="transform rotate-90 block leading-none">▲</span>
+            <span
+              class="text-white text-5xl font-bold transform rotate-90 opacity-100"
+            >
+              ▲
+            </span>
           </button>
+
           <!-- Bouton STOP -->
           <button
             v-else
             @click="stopAudio"
-            class="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center shadow-lg text-white text-4xl font-bold"
+            class="w-20 h-20 bg-red-500/40 rounded-xl flex items-center justify-center shadow-lg"
           >
-            &#9632;
+            <span class="text-white text-4xl font-bold opacity-100">
+              &#9632;
+            </span>
           </button>
 
           <!-- Audio tag -->

@@ -49,7 +49,7 @@
                 <button
                   v-if="!isPlaying"
                   @click="playAudio"
-                  class="w-20 h-20 bg-green-500/40 rounded-xl flex items-center justify-center shadow-lg"
+                  class="w-20 h-20 bg-green-500/60 rounded-xl flex items-center justify-center shadow-lg"
                 >
                   <span
                     class="text-white text-5xl font-bold transform rotate-90 opacity-100"
@@ -105,7 +105,7 @@ const props = withDefaults(
     image: "photo_mariage_Thibault.png",
     shortHistory: "Votre petit-fils s'est marié… et vous y étiez !",
     date: "17 juin 2022",
-    audioHistory: "../public/audio_extrait.wav",
+    audioHistory: "../public/event2.mp3",
   }
 );
 

@@ -52,12 +52,12 @@
       <router-link to="/souvenir">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <img
-            src="../public/photo1.jpg"
+            src="../public/photo-mariage.jpg"
             alt="Photo 1"
             class="rounded-xl object-cover w-full h-80"
           />
           <img
-            src="../public/photo1.jpg"
+            src="../public/photo-mariage.jpg"
             alt="Photo 2"
             class="rounded-xl object-cover w-full h-80"
           />
