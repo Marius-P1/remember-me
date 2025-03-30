@@ -1,9 +1,10 @@
 <template>
   <div class="mx-auto w-full p-8">
-    <!-- Bouton retour -->
+    <!-- Contenant principal -->
     <div
       class="relative container-fixed-size bg-white bg-slate-50 p-6 font-sans flex flex-col rounded-xl"
     >
+      <!-- Bouton retour -->
       <router-link
         to="/"
         class="absolute top-4 left-4 z-20 bg-[#0035EB] rounded-full p-4 shadow-lg hover:bg-[#002bd1] transition"
@@ -25,83 +26,82 @@
         </svg>
       </router-link>
 
-      <h1
-        class="text-4xl md:text-5xl font-bold text-center mb-10 text-blue-900"
-      >
-        {{ person?.name }}
-      </h1>
-
-      <div v-if="person" class="flex flex-col items-center">
-        <!-- Photo principale -->
-        <div
-          class="w-60 h-60 rounded-full overflow-hidden mb-6 border-4 border-blue-200 shadow-lg"
-        >
-          <img
-            :src="person.image"
-            :alt="`Photo de ${person.name}`"
-            class="w-full h-full object-cover"
-          />
-        </div>
-
-        <!-- Souvenir texte -->
-        <div class="w-full mb-8">
-          <h3 class="text-2xl font-bold text-blue-900 mb-2">
-            Souvenir de {{ person.name }}, {{ person.relation }}
-          </h3>
-          <p
-            class="text-lg text-gray-700 leading-relaxed bg-white p-4 rounded-xl shadow"
-          >
-            {{
-              person.description ||
-              "C'était une personne très importante pour moi. Je garde en mémoire son sourire et sa gentillesse."
-            }}
-          </p>
-        </div>
-
-        <!-- Lecteur audio avec boutons stylisés -->
-        <div class="flex items-center space-x-6">
-          <!-- Bouton PLAY -->
-          <button
-            v-if="!isPlaying"
-            @click="playAudio"
-            class="w-20 h-20 bg-green-500/60 rounded-xl flex items-center justify-center shadow-lg"
-          >
-            <span
-              class="text-white text-5xl font-bold transform rotate-90 opacity-100"
-            >
-              ▲
-            </span>
-          </button>
-
-          <!-- Bouton STOP -->
-          <button
-            v-else
-            @click="stopAudio"
-            class="w-20 h-20 bg-red-500/40 rounded-xl flex items-center justify-center shadow-lg"
-          >
-            <span class="text-white text-4xl font-bold opacity-100">
-              &#9632;
-            </span>
-          </button>
-
-          <!-- Audio tag -->
-          <audio
-            ref="audioRef"
-            :src="person.audiodescription || '../public/audio_extrait.wav'"
-            preload="auto"
-          />
-
-          <!-- Animation bars -->
-          <div class="waveform flex items-center h-8 space-x-1">
+      <!-- Contenu uniquement si la personne existe -->
+      <div v-if="person" class="flex flex-col space-y-8 mt-6 justify-center items-center">
+        <!-- Section en haut, en flex: à gauche l'info personne, à droite le player -->
+        <div class="flex flex-wrap md:flex-nowrap space-x-6">
+          <!-- Info personne (photo, nom, relation, âge) -->
+          <div class="flex items-center space-x-6">
             <div
-              v-for="i in 5"
-              :key="i"
-              class="wave-bar bg-blue-500 w-1.5 h-full rounded-full"
-              :class="{ active: isPlaying }"
-              :style="`animation-delay: ${i * 0.1}s`"
-            ></div>
+              class="w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden border-4 border-blue-200 shadow-lg"
+            >
+              <img
+                :src="person.image"
+                :alt="`Photo de ${person.name}`"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="flex flex-col">
+              <p class="text-3xl font-bold text-gray-800">
+                {{ person.name }}
+              </p>
+              <p class="text-2xl text-blue-500">
+                {{ person.relation }}
+              </p>
+              <p class="text-xl md:text-2xl text-gray-700">
+                {{ person.age }} ans
+              </p>
+            </div>
+          </div>
+
+          <!-- Lecteur audio (en haut à droite sur écrans larges) -->
+          <div class="flex items-center space-x-6 mt-6 md:mt-0">
+            <!-- Bouton PLAY -->
+            <button
+              v-if="!isPlaying"
+              @click="playAudio"
+              class="w-16 h-16 md:w-20 md:h-20 bg-green-500/60 rounded-xl flex items-center justify-center shadow-lg"
+            >
+              <span
+                class="text-white text-4xl md:text-5xl font-bold transform rotate-90 opacity-100"
+              >
+                ▲
+              </span>
+            </button>
+
+            <!-- Bouton STOP -->
+            <button
+              v-else
+              @click="stopAudio"
+              class="w-16 h-16 md:w-20 md:h-20 bg-red-500/40 rounded-xl flex items-center justify-center shadow-lg"
+            >
+              <span class="text-white text-3xl md:text-4xl font-bold opacity-100">
+                &#9632;
+              </span>
+            </button>
+
+            <!-- Balise audio -->
+            <audio
+              ref="audioRef"
+              :src="person.audiodescription || '../public/audio_extrait.wav'"
+              preload="auto"
+            />
+
+            <!-- Barres d'animation -->
+            <div class="waveform flex items-center h-8 space-x-1">
+              <div
+                v-for="i in 5"
+                :key="i"
+                class="wave-bar bg-blue-500 w-1.5 h-full rounded-full"
+                :class="{ active: isPlaying }"
+                :style="`animation-delay: ${i * 0.1}s`"
+              ></div>
+            </div>
           </div>
         </div>
+
+        <!-- Détail fiche (en dessous) -->
+        <DetailFiche :person="person" />
       </div>
 
       <!-- Personne introuvable -->
@@ -118,6 +118,7 @@
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import people from "./data/people.json";
+import DetailFiche from "./components/DetailFiche.vue";
 
 const route = useRoute();
 const person = ref(null);
