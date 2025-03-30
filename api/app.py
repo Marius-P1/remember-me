@@ -133,8 +133,9 @@ def get_person_by_group(group: RelationshipType):
             persons.append(person)
             for image in db.images:
                 if person.id in image.person_id:
-                    images.append(image)
-                    image.person_id = [person.id for person in db.persons if person.id in image.person_id]
+                    if image not in images:
+                        images.append(image)
+                        image.person_id = [person.id for person in db.persons if person.id in image.person_id]
     return {
         "persons": persons,
         "images": images,
@@ -161,6 +162,46 @@ def get_souvenir_du_jour():
         return {"event": event, "image": imageofday}
     else:
         return {"error": "No events found"}
+
+
+@app.get("/image/{image_id}/create")
+def create_image(image_id: int):
+    """
+    Create a story about the event associated with the image.
+    """
+    annecdotes = []
+    for image in db.images:
+        if image.id == image_id:
+            for event in db.events:
+                if event.id == image.event_id:
+                    annecdotes = event.annecdotes
+                    break
+            if not annecdotes:
+                return {"error": "No annecdotes found for this image"}
+            else:
+                # IA generate story
+                #audio_url = generate_audio(annecdotes)
+                # return {"audio_url" : audio_url}
+                return {}
+    return {"error": "Image not found"}
+
+@app.get("/person/{person_id}/create")
+def create_person(person_id: int):
+    """
+    Create a story about the person.
+    """
+    annecdotes = []
+    for person in db.persons:
+        if person.id == person_id:
+            annecdotes = person.annecdotes
+            break
+    if not annecdotes:
+        return {"error": "No annecdotes found for this person"}
+    else:
+        # IA generate story
+        #audio_url = generate_audio(annecdotes)
+        # return {"audio_url" : audio_url}
+        return {}
 
 
 # @app.middleware("http")

@@ -23,7 +23,7 @@ class Person(BaseModel):
     birthdate: str = Field(description="Date of birth in YYYY-MM-DD format")
     description: str = Field(description="Some background information about the person")
     annecdotes: list[str] = Field(default_factory=list, description="At least 10 anecdotes about the person")
-    profile_picture_id: int
+    profile_picture_url: str
     relationship_type: RelationshipType = Field(description="The type of relationship between the person and the elderly person")
     relationship: str = Field(description="The relationship of the person to the elderly person")
 

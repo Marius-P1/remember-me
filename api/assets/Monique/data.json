@@ -18,7 +18,7 @@
           "Nous avons fait un voyage ensemble à la mer, elle a pris des centaines de photos.",
           "Elle m'a toujours dit que l'amour et la famille étaient les plus importants."
         ],
-        "profile_picture_id": 1,
+        "profile_picture_url": "../api/assets/Monique/pierre-pp.png",
         "relationship_type": "family",
         "relationship": "fils"
       },
@@ -40,7 +40,7 @@
           "Monique m'a encouragée à me lancer dans des projets créatifs, elle croyait en moi.",
           "Nous avons organisé un grand repas de famille pour son anniversaire, elle était si heureuse."
         ],
-        "profile_picture_id": 2,
+        "profile_picture_url": "../api/assets/Monique/carole-pp.png",
         "relationship_type": "family",
         "relationship": "belle-fille"
       },
@@ -62,7 +62,7 @@
           "Nous avons regardé des films de Disney, elle chantait toujours les chansons.",
           "Elle m'a appris à faire du vélo, et elle était si fière de moi."
         ],
-        "profile_picture_id": 3,
+        "profile_picture_url": "../api/assets/Monique/thibault-pp.png",
         "relationship_type": "family",
         "relationship": "petit-fils"
       },
@@ -84,7 +84,7 @@
           "Monique a toujours été là pour me consoler quand j'étais triste.",
           "Elle m'a appris à apprécier la nature, nous faisions des promenades dans le parc."
         ],
-        "profile_picture_id": 4,
+        "profile_picture_url": "../api/assets/Monique/celeste-pp.png",
         "relationship_type": "family",
         "relationship": "petite-fille"
       },
@@ -106,7 +106,7 @@
           "Nous avons célébré de nombreux anniversaires ensemble, elle adorait faire la fête.",
           "Monique m'a toujours dit que la famille était la chose la plus précieuse."
         ],
-        "profile_picture_id": 5,
+        "profile_picture_url": "../api/assets/Monique/lucien-pp.png",
         "relationship_type": "family",
         "relationship": "frère"
       },
@@ -128,7 +128,7 @@
           "Elle m'a appris à apprécier les petites choses de la vie, comme un bon café.",
           "Nous avons célébré nos 50 ans de mariage, un moment inoubliable."
         ],
-        "profile_picture_id": 6,
+        "profile_picture_url": "../api/assets/Monique/pierre-pp.png",
         "relationship_type": "family",
         "relationship": "mari"
       }
@@ -188,54 +188,6 @@
       }
     ],
     "images": [
-        {
-            "id": 1,
-            "title": "Paul",
-            "description": "Paul, le fils de Monique, souriant lors d'une fête de famille.",
-            "date": "2023-05-15",
-            "person_id": [1],
-            "url": "../api/assets/Monique/pierre-pp.png"
-        },
-        {
-            "id": 2,
-            "title": "Carole",
-            "description": "Carole, la belle-fille de Monique, heureuse lors d'une réunion de famille.",
-            "date": "2023-05-15",
-            "person_id": [2],
-            "url": "../api/assets/Monique/carole-pp.png"
-        },
-        {
-            "id": 3,
-            "title": "Thibault",
-            "description": "Thibault, le petit-fils de Monique, jouant dans le jardin.",
-            "date": "2023-05-15",
-            "person_id": [3],
-            "url": "../api/assets/Monique/thibault-pp.png"
-        },
-        {
-            "id": 4,
-            "title": "Céleste",
-            "description": "Céleste, la petite-fille de Monique, souriante avec sa grand-mère.",
-            "date": "2023-05-15",
-            "person_id": [4],
-            "url": "../api/assets/Monique/celeste-pp.png"
-        },
-        {
-            "id": 5,
-            "title": "Lucien",
-            "description": "Lucien, le frère de Monique, souriant lors d'une réunion de famille.",
-            "date": "2023-05-15",
-            "person_id": [5],
-            "url": "../api/assets/Monique/lucien-pp.png"
-        },
-        {
-            "id": 6,
-            "title": "Pierre",
-            "description": "Pierre, le mari de Monique, souriant lors d'une fête de famille.",
-            "date": "2023-05-15",
-            "person_id": [6],
-            "url": "../api/assets/Monique/pierre-pp.png"
-        },
         {
             "id": 7,
             "title": "Mariage de Thibault",
