@@ -84,35 +84,36 @@ onUnmounted(() => {
 .date-container {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     sans-serif;
-
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center; /* Centrage horizontal */
 }
 
 .day-name {
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 500;
-  margin: 0;
+  margin: 6px;
   color: #333;
   font-family: "Segoe Script", "Brush Script MT", cursive;
 }
 
 .date-info {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  font-weight: 600;
   color: #555;
-  margin: 8px 0 16px 0;
+  margin: 8px 0 10px 0;
 }
 
 .time-box {
   background-color: #f0f0f0;
-  padding: 12px 20px;
+  padding: 10px 20px;
+  margin: 20px 0 5% 0;
   border-radius: 8px;
   display: inline-block;
 }
 
 .time {
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 600;
   color: #333;
 }

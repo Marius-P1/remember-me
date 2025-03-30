@@ -1,81 +1,61 @@
 <template>
   <section class="rounded-xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-    <h2 class="mb-4 flex items-center text-2xl font-bold text-slate-800">
-      <calendar-icon class="mr-2 h-7 w-7" />
-      Agenda
-    </h2>
-
-    <!-- Section : Aujourd'hui -->
-    <div class="mb-8">
-      <h3 class="mb-4 text-xl font-semibold text-gray-900">Aujourd'hui</h3>
-      <div
-        v-for="(event, index) in todayEvents"
-        :key="index"
-        class="mb-4 rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
-      >
-        <div class="flex items-start">
-          <!-- Icône d'horloge avec heure à côté -->
-          <div class="mr-3 flex items-center">
-            <clock-icon class="h-6 w-6 text-gray-800 mr-2" />
-            <span class="text-lg font-medium text-gray-800">{{
-              event.time
-            }}</span>
-          </div>
-
-          <!-- Texte & image -->
-          <div class="flex-1">
-            <div class="mb-1 text-xl font-medium text-slate-800">
-              {{ event.title }}
-            </div>
-            <div class="text-base text-slate-600">
-              {{ event.description }}
-            </div>
-
-            <div v-if="event.image" class="mt-2">
-              <img
-                :src="event.image"
-                alt="Personne"
-                class="h-12 w-12 rounded-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section : Demain -->
+    <!-- Section : Aujourd'hui (événements de demain) -->
     <div>
-      <h3 class="mb-4 text-xl font-semibold text-gray-900">Demain</h3>
+      <div class="mb-4 flex items-center justify-between mb-9">
+        <h3 class="text-3xl font-semibold text-gray-900">Aujourd'hui</h3>
+        <button
+          class="rounded-full bg-blue-500 p-3 hover:bg-blue-600 transition"
+          aria-label="Voir plus"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
+      </div>
+
       <div
         v-for="(event, index) in tomorrowEvents"
         :key="index"
         class="mb-4 rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
       >
-        <div class="flex items-start">
-          <!-- Icône d'horloge avec heure à côté -->
-          <div class="mr-3 flex items-center">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
             <clock-icon class="h-6 w-6 text-gray-800 mr-2" />
-            <span class="text-lg font-medium text-gray-800">{{
+            <span class="text-2xl font-medium text-gray-800">{{
               event.time
             }}</span>
-          </div>
 
-          <!-- Texte & image -->
-          <div class="flex-1">
-            <div class="mb-1 text-xl font-medium text-slate-800">
+            <!-- Trait bleu vertical uniforme -->
+            <div class="mx-4 w-[3px] h-10 bg-blue-500"></div>
+          </div>
+          <!-- Bloc texte (titre et description) -->
+          <div class="flex-1 mx-4">
+            <div class="mb-1 text-3xl text-slate-800">
               {{ event.title }}
             </div>
-            <div class="text-base text-slate-600">
+            <div class="text-2xl text-slate-600">
               {{ event.description }}
             </div>
-
-            <div v-if="event.image" class="mt-2">
-              <img
-                :src="event.image"
-                alt="Personne"
-                class="h-12 w-12 rounded-full object-cover"
-              />
-            </div>
+          </div>
+          <!-- Bloc image à droite -->
+          <div v-if="event.image" class="ml-4">
+            <img
+              :src="event.image"
+              alt="Personne"
+              class="h-20 w-20 rounded-full object-cover"
+            />
           </div>
         </div>
       </div>
@@ -88,13 +68,13 @@ import { ref, computed } from "vue";
 import { Calendar as CalendarIcon, Clock as ClockIcon } from "lucide-vue-next";
 
 export default {
-  name: "AgendaExample",
+  name: "Agenda",
   components: {
     CalendarIcon,
     ClockIcon,
   },
   setup() {
-    // Petit utilitaire pour vérifier si deux dates sont le même jour
+    // Vérifie si deux dates sont le même jour
     const isSameDay = (d1, d2) => {
       return (
         d1.getFullYear() === d2.getFullYear() &&
@@ -103,24 +83,22 @@ export default {
       );
     };
 
-    // Détermine "aujourd'hui" et "demain"
     const today = new Date();
     const tomorrow = new Date(today);
     tomorrow.setDate(tomorrow.getDate() + 1);
 
-    // Données d'exemple
+    // Tous les événements sont pour demain
     const events = ref([
       {
-        date: new Date().toISOString(),
+        date: tomorrow.toISOString(),
         time: "9h00",
         title: "Infirmière",
         description: "Anaïs vient faire les soins",
         color: "green",
         image: "https://randomuser.me/api/portraits/women/28.jpg",
       },
-
       {
-        date: new Date().toISOString(),
+        date: tomorrow.toISOString(),
         time: "16h30",
         title: "Rdv Ophtalmologue",
         description: "Accompagner Fred, petit-fils",
@@ -128,20 +106,15 @@ export default {
         image: "https://randomuser.me/api/portraits/men/32.jpg",
       },
       {
-        date: new Date(
-          new Date().setDate(new Date().getDate() + 1)
-        ).toISOString(),
+        date: tomorrow.toISOString(),
         time: "13h30",
         title: "Visite",
         description: "Carole, ta fille, viendra te rendre visite",
         color: "green",
-        image: "https://randomuser.me/api/portraits/women/35.jpg",
+        image: "https://randomuser.me/api/portraits/women/32.jpg",
       },
     ]);
 
-    const todayEvents = computed(() =>
-      events.value.filter((e) => isSameDay(new Date(e.date), today))
-    );
     const tomorrowEvents = computed(() =>
       events.value.filter((e) => isSameDay(new Date(e.date), tomorrow))
     );
@@ -161,7 +134,6 @@ export default {
 
     return {
       events,
-      todayEvents,
       tomorrowEvents,
       getColorClass,
     };
@@ -169,6 +141,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
