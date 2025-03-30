@@ -1,6 +1,8 @@
 <template>
-  <div class="mx-auto w-full p-6">
-    <div class="relative container-fixed-size bg-white p-6 rounded-2xl shadow-md">
+  <div class="mx-auto w-full p-8">
+    <div
+      class="relative container-fixed-size bg-white p-6 rounded-2xl shadow-md"
+    >
       <router-link
         to="/"
         class="absolute top-4 left-4 z-20 bg-[#0035EB] rounded-full p-4 shadow-lg hover:bg-[#002bd1] transition"

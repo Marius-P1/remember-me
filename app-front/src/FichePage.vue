@@ -6,7 +6,7 @@
     >
       <!-- Bouton retour -->
       <router-link
-        to="/"
+        to="/album"
         class="absolute top-4 left-4 z-20 bg-[#0035EB] rounded-full p-4 shadow-lg hover:bg-[#002bd1] transition"
         aria-label="Retour"
       >
@@ -31,10 +31,9 @@
         v-if="person"
         class="flex flex-col space-y-8 mt-6 justify-center items-center"
       >
-
         <div class="flex flex-wrap md:flex-nowrap space-x-6">
           <!-- Info personne (photo, nom, relation, âge) -->
-          <div class="flex items-center space-x-6  mr-8">
+          <div class="flex items-center space-x-6 mr-8">
             <div
               class="w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden border-4 border-blue-200 shadow-lg"
             >
