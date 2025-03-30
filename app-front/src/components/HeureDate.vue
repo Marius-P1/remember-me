@@ -1,50 +1,119 @@
 <template>
-  <header class="mb-8 text-center">
-    <div class="text-5xl font-bold text-slate-800">{{ currentTime }}</div>
-    <div class="mt-2 text-3xl font-medium text-slate-600">
-      {{ currentDate }}
+  <div class="flex items-center justify-center">
+    <div class="date-container text-center">
+      <h1 class="day-name">{{ dayName }}</h1>
+      <p class="date-info">{{ periodOfDay }} - {{ formattedDate }}</p>
+      <div class="time-box">
+        <span class="time">{{ formattedTime }}</span>
+      </div>
     </div>
-  </header>
+  </div>
 </template>
 
-<script>
-import { ref, onMounted } from "vue";
+<script setup>
+import { ref, onMounted, onUnmounted } from "vue";
 
-export default {
-  name: "HeureDate",
-  setup() {
-    const currentTime = ref("");
-    const currentDate = ref("");
+const dayName = ref("");
+const periodOfDay = ref("");
+const formattedDate = ref("");
+const formattedTime = ref("");
+let timerInterval = null;
 
-    const updateDateTime = () => {
-      const now = new Date();
+const updateDateTime = () => {
+  const now = new Date();
 
-      // Format de l'heure (HH:MM)
-      currentTime.value = now.toLocaleTimeString("fr-FR", {
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false,
-      });
+  const days = [
+    "Dimanche",
+    "Lundi",
+    "Mardi",
+    "Mercredi",
+    "Jeudi",
+    "Vendredi",
+    "Samedi",
+  ];
+  dayName.value = days[now.getDay()];
 
-      // Format de la date (Jour DD Mois YYYY)
-      currentDate.value = now.toLocaleDateString("fr-FR", {
-        weekday: "long",
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      });
-    };
+  // Determine period of day
+  const hour = now.getHours();
+  if (hour < 12) {
+    periodOfDay.value = "Matin";
+  } else if (hour < 18) {
+    periodOfDay.value = "Après-midi";
+  } else {
+    periodOfDay.value = "Soir";
+  }
 
-    onMounted(() => {
-      updateDateTime();
-      // Mise à jour chaque minute
-      setInterval(updateDateTime, 60000);
-    });
+  // Format date in French
+  const months = [
+    "Janvier",
+    "Février",
+    "Mars",
+    "Avril",
+    "Mai",
+    "Juin",
+    "Juillet",
+    "Août",
+    "Septembre",
+    "Octobre",
+    "Novembre",
+    "Décembre",
+  ];
+  formattedDate.value = `${now.getDate()} ${
+    months[now.getMonth()]
+  } ${now.getFullYear()}`;
 
-    return {
-      currentTime,
-      currentDate,
-    };
-  },
+  // Format time
+  const hours = now.getHours().toString().padStart(2, "0");
+  const minutes = now.getMinutes().toString().padStart(2, "0");
+  formattedTime.value = `${hours}:${minutes}`;
 };
+
+onMounted(() => {
+  updateDateTime();
+  timerInterval = setInterval(updateDateTime, 60000);
+});
+
+onUnmounted(() => {
+  if (timerInterval) {
+    clearInterval(timerInterval);
+  }
+});
 </script>
+
+<style scoped>
+.date-container {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.day-name {
+  font-size: 4rem;
+  font-weight: 500;
+  margin: 0;
+  color: #333;
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+}
+
+.date-info {
+  font-size: 1.5rem;
+  color: #555;
+  margin: 8px 0 16px 0;
+}
+
+.time-box {
+  background-color: #f0f0f0;
+  padding: 12px 20px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.time {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #333;
+}
+</style>

@@ -1,35 +1,17 @@
-<!-- <script>
-export default {
-  name: "SouvenirPage",
-};
-</script>
-
-<style>
-@media (min-width: 1024px) {
-  .max-w-4xl {
-    max-width: 1024px;
-  }
-}
-</style>
-
-<template>
-  <div class="min-h-screen bg-slate-50 p-6 font-sans flex flex-col">
-    <div class="mx-auto w-full max-w-4xl bg-white p-8 shadow-md rounded-xl">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="space-y-8">
-          <h2>Fiche Page</h2>
-        </div>
-        <div>
-          <router-link to="/"> Retour à l'accueil</router-link>
-        </div>
-      </div>
-    </div>
-  </div>
-</template> -->
-
 <template>
   <div class="mx-auto w-full p-8">
-    <div class="container-fixed-size bg-white bg-slate-50 p-6 font-sans flex flex-col rounded-xl">
+    <!-- Bouton retour -->
+
+    <div
+      class="relative container-fixed-size bg-white bg-slate-50 p-6 font-sans flex flex-col rounded-xl"
+    >
+      <router-link
+        to="/"
+        class="absolute top-8 left-8 bg-blue-100 text-blue-800 px-4 py-2 rounded-xl shadow hover:bg-blue-200 transition"
+      >
+        &lt;
+      </router-link>
+
       <h1
         class="text-4xl md:text-5xl font-bold text-center mb-10 text-blue-900"
       >
@@ -37,9 +19,9 @@ export default {
       </h1>
 
       <div v-if="person" class="flex flex-col items-center">
-        <!-- Photo principale du personnage -->
+        <!-- Photo principale -->
         <div
-          class="w-48 h-48 rounded-full overflow-hidden mb-4 border-4 border-blue-200"
+          class="w-60 h-60 rounded-full overflow-hidden mb-6 border-4 border-blue-200 shadow-lg"
         >
           <img
             :src="person.image"
@@ -47,36 +29,65 @@ export default {
             class="w-full h-full object-cover"
           />
         </div>
-        <h2 class="text-3xl font-bold text-blue-900 mb-2">
-          {{ person.name }}
-        </h2>
-        <p class="text-2xl text-blue-700 mb-6">
-          {{ person.relation }}
-        </p>
 
-        <!-- Autres photos du personnage (petite galerie) -->
-        <div class="w-full">
-          <h3 class="text-2xl font-bold text-blue-900 mb-4">Ses photos</h3>
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <!-- Souvenir texte (paragraphe) -->
+        <div class="w-full mb-8">
+          <h3 class="text-2xl font-bold text-blue-900 mb-2">
+            Souvenir de {{ person.name }}, {{ person.relation }}
+          </h3>
+          <p
+            class="text-lg text-gray-700 leading-relaxed bg-white p-4 rounded-xl shadow"
+          >
+            {{
+              person.description ||
+              "C'était une personne très importante pour moi. Je garde en mémoire son sourire et sa gentillesse."
+            }}
+          </p>
+        </div>
+
+        <!-- Lecteur audio amélioré -->
+        <div class="flex items-center space-x-6">
+          <!-- Bouton PLAY -->
+          <button
+            v-if="!isPlaying"
+            @click="playAudio"
+            class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center shadow-lg text-white text-5xl font-bold"
+          >
+            <span class="transform rotate-90 block leading-none">▲</span>
+          </button>
+          <!-- Bouton STOP -->
+          <button
+            v-else
+            @click="stopAudio"
+            class="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center shadow-lg text-white text-4xl font-bold"
+          >
+            &#9632;
+          </button>
+
+          <!-- Audio tag -->
+          <audio
+            ref="audioRef"
+            :src="person.audiodescription || '../public/audio_extrait.wav'"
+            preload="auto"
+          />
+
+          <!-- Animation bars -->
+          <div class="waveform flex items-center h-8 space-x-1">
             <div
-              v-for="(img, idx) in person.gallery"
-              :key="idx"
-              class="overflow-hidden rounded-xl shadow-sm"
-            >
-              <img
-                :src="img"
-                :alt="`Photo supplémentaire de ${person.name}`"
-                class="w-full h-full object-cover"
-              />
-            </div>
+              v-for="i in 5"
+              :key="i"
+              class="wave-bar bg-blue-500 w-1.5 h-full rounded-full"
+              :class="{ active: isPlaying }"
+              :style="`animation-delay: ${i * 0.1}s`"
+            ></div>
           </div>
         </div>
       </div>
 
-      <!-- Si l'ID est invalide / pas trouvé -->
+      <!-- Personne introuvable -->
       <div v-else>
         <p class="text-center text-xl text-gray-700">
-          Aucune information disponible pour cet identifiant.
+          Aucune information disponible pour cette personne.
         </p>
       </div>
     </div>
@@ -86,77 +97,52 @@ export default {
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
+import people from "./data/people.json";
 
-// On récupère la route pour lire param ":id"
 const route = useRoute();
 const person = ref(null);
+const isPlaying = ref(false);
+const audioRef = ref(null);
 
-// Simule un stockage local des personnes
-// (vous pouvez le récupérer d'un store global, d'une API, etc.)
-const peopleData = [
-  {
-    id: 1,
-    category: "famille",
-    name: "Jean Dupont",
-    relation: "Mon fils",
-    image: "/placeholder.svg?height=200&width=200",
-    gallery: [
-      "/placeholder.svg?height=200&width=200",
-      "/placeholder.svg?height=200&width=200",
-    ],
-  },
-  {
-    id: 2,
-    category: "famille",
-    name: "Marie Dupont",
-    relation: "Ma fille",
-    image: "/placeholder.svg?height=200&width=200",
-    gallery: [
-      "/placeholder.svg?height=200&width=200",
-      "/placeholder.svg?height=200&width=200",
-    ],
-  },
-  {
-    id: 3,
-    category: "soignants",
-    name: "Dr. Sophie Martin",
-    relation: "Ma médecin traitante",
-    image: "/placeholder.svg?height=200&width=200",
-    gallery: ["/placeholder.svg?height=200&width=200"],
-  },
-  {
-    id: 4,
-    category: "soignants",
-    name: "Pierre Lefebvre",
-    relation: "Mon infirmier",
-    image: "/placeholder.svg?height=200&width=200",
-    gallery: [],
-  },
-  {
-    id: 5,
-    category: "amis",
-    name: "Claude Moreau",
-    relation: "Mon ami d'enfance",
-    image: "/placeholder.svg?height=200&width=200",
-    gallery: ["/placeholder.svg?height=200&width=200"],
-  },
-  {
-    id: 6,
-    category: "amis",
-    name: "Jeanne Petit",
-    relation: "Ma voisine",
-    image: "/placeholder.svg?height=200&width=200",
-    gallery: [],
-  },
-];
-
-// On cherche la personne au montage
 onMounted(() => {
-  const idParam = Number(route.params.id); // Récupère l'ID dans l'URL
-  person.value = peopleData.find((p) => p.id === idParam) || null;
+  const idParam = Number(route.params.id);
+  person.value = people.find((p) => p.id === idParam) || null;
 });
+
+const playAudio = () => {
+  if (audioRef.value) {
+    audioRef.value.play();
+    isPlaying.value = true;
+  }
+};
+
+const stopAudio = () => {
+  if (audioRef.value) {
+    audioRef.value.pause();
+    audioRef.value.currentTime = 0;
+    isPlaying.value = false;
+  }
+};
 </script>
 
 <style scoped>
-/* Vous pouvez ajouter du style si nécessaire */
+.wave-bar {
+  height: 20%;
+  transition: height 0.3s ease;
+}
+
+.wave-bar.active {
+  animation: wave 1.2s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    height: 20%;
+  }
+  50% {
+    height: 100%;
+  }
+}
 </style>

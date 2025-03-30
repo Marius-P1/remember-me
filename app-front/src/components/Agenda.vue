@@ -1,6 +1,5 @@
 <template>
   <section class="rounded-xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-    <!-- Titre principal -->
     <h2 class="mb-4 flex items-center text-2xl font-bold text-slate-800">
       <calendar-icon class="mr-2 h-7 w-7" />
       Agenda

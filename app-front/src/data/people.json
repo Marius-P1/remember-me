@@ -1,0 +1,59 @@
+[
+    {
+      "id": 1,
+      "category": "famille",
+      "name": "Paul",
+      "relation": "Fils",
+      "image": "/personne/pierre_fils.png",
+      "audiodescription": "../public/audio_extrait.wav"
+    },
+    {
+      "id": 2,
+      "category": "famille",
+      "name": "Carole",
+      "relation": "Belle-fille",
+      "image": "/personne/carol_aide_domicile.png",
+      "audiodescription": "../public/audio_extrait.wav"
+    },
+    {
+      "id": 3,
+      "category": "famille",
+      "name": "Thibault",
+      "relation": "Petit-fils",
+      "image": "/personne/fred_petit_fils.png",
+      "audiodescription": "../public/audio_extrait.wav"
+    },
+    {
+      "id": 4,
+      "category": "amis",
+      "name": "Jeanne",
+      "relation": "Amie de toujours",
+      "image": "/placeholder.svg?height=200&width=200",
+      "audiodescription": "../public/audio_extrait.wav"
+    },
+    {
+      "id": 5,
+      "category": "amis",
+      "name": "Claude",
+      "relation": "Voisin",
+      "image": "/placeholder.svg?height=200&width=200",
+      "audiodescription": "../public/audio_extrait.wav"
+    },
+    {
+      "id": 6,
+      "category": "aidants",
+      "name": "Dr. Martin",
+      "relation": "Médecin traitant",
+      "image": "/personne/pierre.png",
+      "audiodescription": "../public/audio_extrait.wav"
+    },
+    {
+      "id": 7,
+      "category": "aidants",
+      "name": "Anaïs",
+      "relation": "Infirmière",
+      "image": "/personne/anais.png",
+     "audiodescription": "../public/audio_extrait.wav"
+    }
+  ]
+  

@@ -1,80 +1,75 @@
 <template>
-  <div class="mx-auto w-full p-8">
-    <div
-      class="container-fixed-size bg-slate-50 p-6 font-sans flex flex-col rounded-xl"
-    >
-      <!-- Boutons de catégories -->
-      <div class="flex flex-col md:flex-row justify-center gap-6 mb-12">
+  <div class="mx-auto w-full p-6">
+    <div class="container-fixed-size bg-white p-6 rounded-2xl shadow-md">
+      <!-- Navigation Catégories -->
+      <div class="flex justify-center space-x-10 mb-16 mt-8">
         <button
           v-for="category in categories"
           :key="category.id"
           @click="selectCategory(category.id)"
           :class="[
-            'text-2xl md:text-3xl font-bold py-6 px-8 rounded-2xl shadow-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-offset-2',
+            'text-3xl font-bold px-10 py-5 rounded-2xl transition',
             selectedCategory === category.id
-              ? 'bg-blue-600 text-white focus:ring-blue-400'
-              : 'bg-white text-blue-800 hover:bg-blue-100 focus:ring-blue-300',
+              ? 'bg-blue-600 text-white'
+              : 'text-black hover:bg-gray-100',
           ]"
-          :aria-pressed="selectedCategory === category.id"
         >
           {{ category.name }}
         </button>
       </div>
 
-      <!-- Liste de personnes filtrées -->
+      <!-- Liste des personnes -->
       <transition name="fade" mode="out-in">
         <div
           v-if="selectedCategory"
-          class="grid grid-cols-1 md:grid-cols-2 gap-8"
+          class="flex flex-wrap justify-center gap-16 mb-20"
         >
           <div
             v-for="person in filteredPeople"
             :key="person.id"
-            class="rounded-xl p-4 cursor-pointer hover:shadow-md transition duration-300"
-            tabindex="0"
-            role="button"
-            :aria-label="`Voir ${person.name}, ${person.relation}`"
+            class="flex flex-col items-center cursor-pointer"
             @click="goToFiche(person.id)"
           >
-            <div class="flex flex-col items-center">
-              <div
-                class="w-36 h-36 rounded-full overflow-hidden mb-3 border-2 border-blue-200"
-              >
-                <img
-                  :src="person.image"
-                  :alt="`Photo de ${person.name}`"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <h2 class="text-xl font-bold text-blue-900 mb-1 text-center">
-                {{ person.name }}
-              </h2>
-              <p class="text-lg text-blue-700 text-center">
-                {{ person.relation }}
-              </p>
+            <div
+              class="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden mb-6 border-4 border-white shadow-xl"
+            >
+              <img
+                :src="person.image"
+                :alt="`Photo de ${person.name}`"
+                class="w-full h-full object-cover"
+              />
             </div>
+            <p class="text-3xl font-bold text-gray-800 text-center">
+              {{ person.name }}
+            </p>
+            <p class="text-2xl text-blue-500 text-center">
+              {{ person.relation }}
+            </p>
           </div>
         </div>
       </transition>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-        <img
-          src="../public/photo1.jpg"
-          alt="Photo 1"
-          class="rounded-xl object-cover w-full h-64"
-        />
-        <img
-          src="../public/photo1.jpg"
-          alt="Photo 2"
-          class="rounded-xl object-cover w-full h-64"
-        />
-      </div>
+
+      <router-link to="/souvenir">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <img
+            src="../public/photo1.jpg"
+            alt="Photo 1"
+            class="rounded-xl object-cover w-full h-80"
+          />
+          <img
+            src="../public/photo1.jpg"
+            alt="Photo 2"
+            class="rounded-xl object-cover w-full h-80"
+          />
+        </div>
+      </router-link>
     </div>
   </div>
 </template>
-
 <script>
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
+import people from "./data/people.json";
 
 export default {
   name: "AlbumPage",
@@ -83,62 +78,14 @@ export default {
 
     const categories = [
       { id: "famille", name: "Famille" },
-      { id: "soignants", name: "Soignants" },
       { id: "amis", name: "Amis" },
+      { id: "aidants", name: "Aidants" },
     ];
 
-    const people = [
-      {
-        id: 1,
-        category: "famille",
-        name: "Jean Dupont",
-        relation: "Mon fils",
-        image: "/placeholder.svg?height=200&width=200",
-      },
-      {
-        id: 2,
-        category: "famille",
-        name: "Marie Dupont",
-        relation: "Ma fille",
-        image: "/placeholder.svg?height=200&width=200",
-      },
-      {
-        id: 3,
-        category: "soignants",
-        name: "Dr. Sophie Martin",
-        relation: "Ma médecin traitante",
-        image: "/placeholder.svg?height=200&width=200",
-      },
-      {
-        id: 4,
-        category: "soignants",
-        name: "Pierre Lefebvre",
-        relation: "Mon infirmier",
-        image: "/placeholder.svg?height=200&width=200",
-      },
-      {
-        id: 5,
-        category: "amis",
-        name: "Claude Moreau",
-        relation: "Mon ami d'enfance",
-        image: "/placeholder.svg?height=200&width=200",
-      },
-      {
-        id: 6,
-        category: "amis",
-        name: "Jeanne Petit",
-        relation: "Ma voisine",
-        image: "/placeholder.svg?height=200&width=200",
-      },
-    ];
-
-    const selectedCategory = ref(null);
+    const selectedCategory = ref("famille");
 
     const filteredPeople = computed(() => {
-      if (!selectedCategory.value) return [];
-      return people.filter(
-        (person) => person.category === selectedCategory.value
-      );
+      return people.filter((p) => p.category === selectedCategory.value);
     });
 
     const selectCategory = (categoryId) => {
@@ -160,10 +107,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 0.3s ease;
 }
 .fade-enter-from,
 .fade-leave-to {
