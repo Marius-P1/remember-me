@@ -24,8 +24,7 @@ export default {
   setup() {
     const currentMemory = ref({
       title: "Le mariage de ton petit-fils",
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/e/ef/Photographie-mariage.jpg",
+      image: "photo_mariage_Thibault.png",
       description: "Le mariage de ton petit-fils... tu y étais !",
       date: "17 juin 2022",
     });

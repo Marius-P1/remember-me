@@ -82,7 +82,7 @@ const props = withDefaults(
     audioHistory?: string;
   }>(),
   {
-    image: "https://images.unsplash.com/photo-1519741497674-611481863552",
+    image: "photo_mariage_Thibault.png",
     shortHistory: "Votre petit-fils s'est marié… et vous y étiez !",
     date: "17 juin 2022",
     audioHistory: "../public/audio_extrait.wav",
