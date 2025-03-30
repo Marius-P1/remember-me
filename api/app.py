@@ -1,3 +1,4 @@
+from src.event_generation import generate_event_memory
 from fastapi import FastAPI
 from dotenv import load_dotenv
 import os
@@ -15,6 +16,7 @@ from src.schema import Person, Event, Image, DB, RelationshipType
 # Load environment variables from .env file
 load_dotenv()
 port = os.getenv("PORT")
+
 
 app = FastAPI()
 
@@ -175,14 +177,13 @@ def create_image(image_id: int):
             for event in db.events:
                 if event.id == image.event_id:
                     annecdotes = event.annecdotes
+                    my_event = event
                     break
             if not annecdotes:
                 return {"error": "No annecdotes found for this image"}
             else:
-                # IA generate story
-                #audio_url = generate_audio(annecdotes)
-                # return {"audio_url" : audio_url}
-                return {}
+                audio_url = generate_event_memory(my_event)
+                return {"audio_url" : audio_url}
     return {"error": "Image not found"}
 
 @app.get("/person/{person_id}/create")
