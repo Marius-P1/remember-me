@@ -11,4 +11,6 @@ wheels/
 .venv
 venv/
 
+var
+
 .env

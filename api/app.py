@@ -1,3 +1,4 @@
+from src.person_generation import generate_person_memory
 from src.event_generation import generate_event_memory
 from fastapi import FastAPI
 from dotenv import load_dotenv
@@ -192,16 +193,18 @@ def create_person(person_id: int):
     Create a story about the person.
     """
     annecdotes = []
+    my_person = None
     for person in db.persons:
         if person.id == person_id:
             annecdotes = person.annecdotes
+            my_person = person
             break
     if not annecdotes:
         return {"error": "No annecdotes found for this person"}
     else:
         # IA generate story
-        #audio_url = generate_audio(annecdotes)
-        # return {"audio_url" : audio_url}
+        audio_url = generate_person_memory(person)
+        return {"audio_url" : audio_url}
         return {}
 
 

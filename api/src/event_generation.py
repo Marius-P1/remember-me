@@ -47,9 +47,6 @@ def generate_event_memory(event: Event):
     occupation = "Ancienne Assistante sociale"
     event_json = event.model_dump(include={"name", "date", "description", "annecdotes"})
 
-    print("environnement variables")
-    print(os.environ["MISTRAL_API_KEY"])
-
     day_memory = chain.invoke({"name": name,
                                 "age": age,
                                 "occupation": occupation,
